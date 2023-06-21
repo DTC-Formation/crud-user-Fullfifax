@@ -5,7 +5,16 @@ module.exports = {
     "./templates/**/*.html.twig",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        impact: ['Impact', 'fantasy'],
+      },
+    },
+    colors: {
+      darkBlue: '#132b6c',
+      white: '#ffffff',
+      orange: '#e57c23',
+    },
   },
   plugins: [],
 }

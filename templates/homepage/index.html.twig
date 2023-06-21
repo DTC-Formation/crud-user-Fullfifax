@@ -2,13 +2,34 @@
 {% set age = 20 %}
 
 {% block body %}
-    <a href="{{ path('app_contact_us') }}">Contact</a>
-    <h2>Mini calculatrice</h2>
-    <form action="{{ path('app_homepage') }}">
-        <input type="text" name="nombre-a" />
-        <input type="text" name="signe" />
-        <input type="text" name="nombre-b" />
-        <input type="submit" />
-    </form>
-    <a href="{{ path('app_user_index') }}">User</a>
+    <div class="flex justify-center items-center">
+        <div>
+            <h2 class="text-6xl text-white text-center font-bold font-impact mt-6">
+                <span class="text-orange font-bold">DTC</span> Symfony <span class="text-orange font-bold">exo</span>
+            </h2>
+            <div class="flex justify-around items-center">
+                <div class="mt-6" {{ react_component('Card', {
+                    linkPath: path('app_contact_us'),
+                    title: 'Lien twig',
+                    textColor: 'white',
+                    bgColor: 'blue-500'
+                }) }}></div>
+                <div class="mt-6" {{ react_component('Card', {
+                    linkPath: path('app_user_index'),
+                    title: 'CRUD User',
+                    textColor: 'white',
+                    bgColor: 'blue-500'
+                }) }}></div>
+            </div>
+            <div class="mt-6">
+                <h2 class="text-zinc-50">Mini calculatrice</h2>
+                <form action="{{ path('app_homepage') }}">
+                    <input type="text" name="nombre-a" />
+                    <input type="text" name="signe" />
+                    <input type="text" name="nombre-b" />
+                    <input type="submit" />
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
