@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% set age = 20 %}
+{% set inputStyle = "mb-4 bg-gray-50 border border-gray-300 text-darkBlue text-sm rounded-lg focus:text-darkBlue block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-darkBlue dark:focus:darkBlue dark:focus:darkBlue" %}
 
 {% block body %}
     <div class="flex justify-center items-center">
@@ -7,28 +7,30 @@
             <h2 class="text-6xl text-white text-center font-bold font-impact mt-6">
                 <span class="text-orange font-bold">DTC</span> Symfony <span class="text-orange font-bold">exo</span>
             </h2>
-            <div class="flex justify-around items-center">
+            <div class="mt-6">
+                <h2 class="text-center text-2xl text-white mb-4 font-bold">Mini calculator + Redirection to result</h2>
+                <form action="{{ path('app_homepage') }}">
+                    <input class="{{ inputStyle }}" type="text" name="nombre-a" placeholder="First number"/>
+                    <input class="{{ inputStyle }}" type="text" name="signe" placeholder="Operator"/>
+                    <input class="{{ inputStyle }}" type="text" name="nombre-b" placeholder="Second number"/>
+                    <input class="text-white bg-orange hover:bg-orange focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-orange dark:hover:bg-orange dark:focus:ring-blue-800" style="width:100%" type="submit" />
+                </form>
+            </div>
+            <hr class="mt-6 text-white">
+            <h2 class="text-2xl text-center text-white mt-6 mb-2 font-bold">Other Exo</h2>
+            <div class="cards flex justify-around items-center">
                 <div class="mt-6" {{ react_component('Card', {
                     linkPath: path('app_contact_us'),
-                    title: 'Lien twig',
+                    title: 'Twig link',
                     textColor: 'white',
-                    bgColor: 'blue-500'
+                    bgColor: 'orange',
                 }) }}></div>
                 <div class="mt-6" {{ react_component('Card', {
                     linkPath: path('app_user_index'),
                     title: 'CRUD User',
                     textColor: 'white',
-                    bgColor: 'blue-500'
+                    bgColor: 'orange'
                 }) }}></div>
-            </div>
-            <div class="mt-6">
-                <h2 class="text-zinc-50">Mini calculatrice</h2>
-                <form action="{{ path('app_homepage') }}">
-                    <input type="text" name="nombre-a" />
-                    <input type="text" name="signe" />
-                    <input type="text" name="nombre-b" />
-                    <input type="submit" />
-                </form>
             </div>
         </div>
     </div>

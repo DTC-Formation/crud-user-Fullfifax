@@ -3,40 +3,41 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h2 class="text-center text-2xl font-bold text-white mt-6">User</h2>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
+    <div class="flex justify-center justify-around font-bold text-white mb-5">
+        <a href="{{ path('app_user_index') }}">Back to list</a>
+        <div class="flex">
+            <a class="mr-6" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a>
+            {{ include('user/_delete_form.html.twig') }}
+        </div>
+    </div>
+    <table class="min-w-full text-left text-sm font-light">
+        <tbody class="text-white font-bold">
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                <th class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">Id</th>
+                <td class="whitespace-nowrap px-6 py-4">{{ user.id }}</td>
             </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ user.name }}</td>
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                <th class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">Name</th>
+                <td class="whitespace-nowrap px-6 py-4">{{ user.name }}</td>
             </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ user.firstname }}</td>
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                <th class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">Firstname</th>
+                <td class="whitespace-nowrap px-6 py-4">{{ user.firstname }}</td>
             </tr>
-            <tr>
-                <th>Age</th>
-                <td>{{ user.age }}</td>
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                <th class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">Age</th>
+                <td class="whitespace-nowrap px-6 py-4">{{ user.age }}</td>
             </tr>
-            <tr>
-                <th>CIN</th>
-                <td>{{ user.cin }}</td>
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                <th class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">CIN</th>
+                <td class="whitespace-nowrap px-6 py-4">{{ user.cin }}</td>
             </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ user.address }}</td>
+            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                <th class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">Address</th>
+                <td class="whitespace-nowrap px-6 py-4">{{ user.address }}</td>
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('app_user_index') }}">back to list</a>
-
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

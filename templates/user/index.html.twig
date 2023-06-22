@@ -3,41 +3,53 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Firstname</th>
-                <th>Age</th>
-                <th>CIN</th>
-                <th>Address</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.age }}</td>
-                <td>{{ user.cin }}</td>
-                <td>{{ user.address }}</td>
-                <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_user_new') }}">Create new</a>
+    <div class="flex justify-center justify-around">
+        <h2 class="text-center text-2xl text-white">User index</h2>
+        <a class="text-2xl text-orange font-bold" href="{{ path('app_user_new') }}">Create new</a>
+    </div>
+    <div class="flex justify-center text-white flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                    <table class="min-w-full text-left text-sm font-light">
+                        <thead
+                            class="border-b bg-orange font-medium dark:border-neutral-500 dark:bg-neutral-600">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">Id</th>
+                                <th scope="col" class="px-6 py-4">Name</th>
+                                <th scope="col" class="px-6 py-4">Firstname</th>
+                                <th scope="col" class="px-6 py-4">Age</th>
+                                <th scope="col" class="px-6 py-4">CIN</th>
+                                <th scope="col" class="px-6 py-4">Address</th>
+                                <th scope="col" class="px-6 py-4">actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                            <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700">
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.id }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.name }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.firstname }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.age }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.cin }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.address }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">
+                                    <a class="mx-3" href="{{ path('app_user_show', {'id': user.id}) }}">Show</a>
+                                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <a class="mt-6 text-white underline text-white px-4 py-2" href="{{ path('app_homepage') }}">Back to homepage</a>
+    </div>
 {% endblock %}

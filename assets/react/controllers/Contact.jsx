@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function() {
-    return <h2>Contact us</h2>;
+    return <h2 className='text-2xl text-center text-orange font-bold'>Contact us</h2>;
 }

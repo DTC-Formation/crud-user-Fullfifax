@@ -1,4 +1,17 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="flex justify-center">
+        <div class="w-2/4">
+            <div class="grid grid-flow-col justify-stretch">
+                {{ form_row(form.name) }}
+                <div style="ml-2"></div>
+                {{ form_row(form.firstname) }}
+            </div>
+            {{ form_row(form.age) }}
+            {{ form_row(form.cin) }}
+            {{ form_row(form.address) }}
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <button class="w-2/4 mt-2 bg-orange text-white px-4 py-2">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}
