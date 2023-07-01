@@ -28,6 +28,9 @@ class User
     #[ORM\Column(length: 150, nullable: true)]
     private ?string $address = null;
 
+    #[ORM\Column(length: 150, nullable: true)]
+    private ?float $height = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class User
     public function setAddress(?string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getHeight(): ?float
+    {
+        return $this->height;
+    }
+
+    public function setHeight(?float $height): self
+    {
+        $this->height = $height;
 
         return $this;
     }

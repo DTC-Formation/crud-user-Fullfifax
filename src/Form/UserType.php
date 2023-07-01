@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,33 +19,74 @@ class UserType extends AbstractType
         $labelStyle = 'block mb-2 text-white';
 
         $builder
-            ->add('name', TextType::class, [
-                'attr' => ['class' => $inputStyle],
+            ->add('name', 
+                TextType::class, [
+                'attr' => [
+                    'class' => $inputStyle,
+                    'placeholder' => 'Name'
+                ],
+                'label_attr' => [
+                    'class' => $labelStyle,
+                    'placeholder' => 'Name',
+                ],
+            ])
+            ->add('firstname', 
+                TextType::class, [
+                'attr' => [
+                    'class' => $inputStyle,
+                    'placeholder' => 'Firstname'
+                ],
+                'label_attr' => [
+                    'class' => $labelStyle,
+                    'placeholder' => 'Firstname',
+                ],
+            ])
+            ->add('age', 
+                NumberType::class, [
+                'attr' => [
+                    'class' => $inputStyle,
+                    'placeholder' => 'Age'
+                ],
                 'label_attr' => ['class' => $labelStyle],
             ])
-            ->add('firstname', TextType::class, [
-                'attr' => ['class' => $inputStyle],
+            ->add('cin', 
+                TextType::class, [
+                'attr' => [
+                    'class' => $inputStyle,
+                    'placeholder' => 'CIN'
+                ],
                 'label_attr' => ['class' => $labelStyle],
             ])
-            ->add('age', NumberType::class, [
-                'attr' => ['class' => $inputStyle],
+            ->add('address', 
+                TextType::class, [
+                'attr' => [
+                    'class' => $inputStyle,
+                    'placeholder' => 'Address',
+                ],
+                'label_attr' => [
+                    'class' => $labelStyle
+                ],
+            ])
+            ->add('height', 
+                NumberType::class, [
+                'attr' => [
+                    'class' => $inputStyle . ' height-input',
+                    'placeholder' => 'Height'
+                ],
                 'label_attr' => ['class' => $labelStyle],
             ])
-            ->add('cin', TextType::class, [
-                'attr' => ['class' => $inputStyle],
-                'label_attr' => ['class' => $labelStyle],
-            ])
-            ->add('address', TextType::class, [
-                'attr' => ['class' => $inputStyle],
-                'label_attr' => ['class' => $labelStyle],
-            ])
-        ;
+            ->add('send', 
+                SubmitType::class, [
+                'attr' => [
+                    'class' => 'mt-2 bg-orange text-white px-4 py-2',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-        ]); 
+        ]);
     }
 }

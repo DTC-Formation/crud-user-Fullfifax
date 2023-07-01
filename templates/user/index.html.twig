@@ -21,6 +21,7 @@
                                 <th scope="col" class="px-6 py-4">Age</th>
                                 <th scope="col" class="px-6 py-4">CIN</th>
                                 <th scope="col" class="px-6 py-4">Address</th>
+                                <th scope="col" class="px-6 py-4">Height</th>
                                 <th scope="col" class="px-6 py-4">actions</th>
                             </tr>
                         </thead>
@@ -33,6 +34,7 @@
                                 <td class="whitespace-nowrap px-6 py-4">{{ user.age }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">{{ user.cin }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">{{ user.address }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ user.height }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">
                                     <div class="flex">
                                         <a href="{{ path('app_user_show', {'id': user.id}) }}">

@@ -5,7 +5,24 @@
 {% block body %}
     <h2 class="text-orange text-center text-2xl font-bold my-4">Create new User</h2>
 
-    {{ include('user/_form.html.twig') }}
+    {{ form_start(form) }}
+        <div class="flex justify-center">
+            <div class="w-2/4">
+                <div class="grid grid-flow-col justify-stretch">
+                    {{ form_row(form.name, { attr: { 'placeholder': 'Anarana' }, 'label': 'Anarana' }) }}
+                    <div style="ml-2"></div>
+                    {{ form_row(form.firstname) }}
+                </div>
+                {{ form_row(form.age) }}
+                {{ form_row(form.cin) }}
+                {{ form_row(form.address) }}
+                {{ form_row(form.height, {'attr': {'type': 'float'}}) }}
+            </div>
+        </div>
+        <div class="flex justify-center">
+            {{ form_row(form.send) }}
+        </div>
+    {{ form_end(form, { render_rest:false }) }}
 
     <div class="flex justify-center">
         <a class="mt-6 text-white underline text-white px-4 py-2" href="{{ path('app_user_index') }}">Back to list</a>
